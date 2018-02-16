@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="./favicon.ico" rel="icon" type="image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Chaucha IoT</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Montserrat|Source+Code+Pro');
+		body { font-family: 'Montserrat', sans-serif; }
+		a, a:visited, a:active { color: #111; text-decoration: none; border-bottom: 1px blue dotted; }
+		a:hover { color: #F71568; text-decoration: underline; border: none; }
+		.monospace { font-family: 'Source Code Pro', monospace; font-size: 0.8em; }
+	</style>
+
+</head>
+<body>
+<section class="section">
+	<div class="container">
+		<div class="content">
+		<p class="subtitle is-5">15.02.2018</p>
+		<p class="title">Chaucha IoT</p>
+		</div>
+
+		<br>
+
+		<div class="content has-text-justified">
+
+			<h1 class="has-text-centered">introducción</h1>
+			
+			<p>Esta página web presenta la propuesta de desarrollo de un sistema de monitoreo inteligente que utilizará el blockchain de la criptomoneda <a href="https://chaucha.cl/" target="_blank">Chaucha</a> como backend de la plataforma.</p>
+			
+			<p>Toda la información referente al diseño, desarrollo e implementación del sistema será entregada a través de esta página web de manera oportuna, de libre acceso y gratuita para cualquier usuario.</p>
+			
+			<p>La primera prueba práctica del funcionamiento del sistema será presentada la primera semana de Abril del año 2018, posicionando a chaucha como pionera en el desarrollo iot basado en blockchain en latinoamérica y el mundo.</p>
+
+			<br>
+			<h1 class="has-text-centered">propuesta</h1>
+
+			<h2>> funcionamiento teórico</h2>
+			
+			<p>Las transacciones de criptomonedas contienen tres elementos principales, los <b>inputs</b>, que listan las transacciones de entrada en donde se adquiere el monto total a transferir, los <b>outputs</b>, que definen hacia qué direcciones se transferirán estos montos, y el <b>script</b>, que asegura la integridad en la firma de esta transacción.</p>
+			
+			<p>El script se presenta como una serie de <b>opcode</b>, o código de operación, junto con la <b>información</b> que acompaña la ejecución de cada instrucción, lo que permite reconstruir paso a paso la generación de la firma digital.</p>
+			
+			<p>Uno de los opcodes existentes en la Chaucha se llama <b>OP_RETURN</b>, que permite incluir <b>80 bytes</b> de información y es utilizado para inhabilitar una transacción, lo que <b>destruye</b> las chauchas incluidas en la misma.</p>
+			
+			<p>La utilización del OP_RETURN permite <b>almacenar información</b> en la Red Chaucha que quedará disponible en el blockchain de manera <b>pública</b> e <b>inmutable</b> en el tiempo.</p>
+			
+			<h2>> prueba de concepto</h2>
+
+			<p>El día 13 de Febrero del año 2018 se ejecutó en la Red Chaucha la <b>primera prueba</b> de una transacción con el OP_RETURN modificado, que incluyó la palabra <a href="https://www.youtube.com/watch?v=8FvoJ-HahyQ" target="_blank">waiworinao</a> en hexadecimal como información adicional.</p>
+			
+			<div class="has-text-centered">
+				<img src="waiworinao.png" alt="waiworinao">
+				<p class="monospace heading"><a href="http://insight.chaucha.cl/tx/1e3bdd582cd4d1c74b34b9d1959b10aff1d9750b1cb5babf65c7cc81e245ebf1" target="_blank">1e3bdd582cd4d1c74b34b9d1959b10aff1d9750b1cb5babf65c7cc81e245ebf1</a></p>
+			</div>
+			
+			<br>
+			<p class="has-text-centered"><i>Todas las transacciones de prueba son dirigidas a la dirección <a href="http://insight.chaucha.cl/address/cZJXM2yPqjbinTZ48fV8tjGqjxAePJeWuQ" target="_blank">cZJXM2yPqjbinTZ48fV8tjGqjxAePJeWuQ</a><br>a modo de mantener un registro abierto y transparente de los avances de este sistema.</i></p>
+
+			<h2>> costos de operación</h2>
+
+			<p>Dentro de los parámetros de funcionamiento de Chaucha se estableció el <b>impuesto mínimo</b> de 0.001 CHA para minar una transacción, junto con la definición de <b>polvo</b> a transacciones con un monto menor a este impuesto.</p>
+			<p>A partir de esto, se puede estimar que el costo asociado a capturar parametros cada 10 minutos durante un año es de <b>105.12 CHA</b>, lo que es un precio razonable considerando los <b>beneficios</b> de este sistema, pero que crea una <b>barrera económica</b> para la investigación independiente.</p>
+
+			<h2>> limitaciones</h2>
+			
+			<p>Existen dos graves problemas que limitan la escalabilidad de este sistema, que son el <b>costo</b> asociado a las transacciones y el <b>bloqueo de los fondos</b> utilizados en las mismas.</p>
+
+			<p>Es posible <b>disminuir el costo</b> de las transacciones al configurar una <b>mining pool</b> que acepte el minar transacciones con cero impuesto, lo que disminuiría el costo de utilización del sistema pero comprometería la <b>descentralización</b> de la red.</p>
+
+			<p>También es posible <b>modificar el OP_RETURN</b> para evitar que deshabilite las transacciones y al mismo tiempo modificar su capacidad de 80 bytes, pero este cambio requiere la <b>actualización total</b> de los nodos en la Red Chaucha.</p>
+
+			<p>Estas propuestas serán estudiadas dentro del desarrollo del sistema.</p>
+			
+			<br>
+			<h1 class="has-text-centered">conclusión</h1>
+
+			<p>La creación de un sistema de monitoreo inteligente en base a la utilización de la tecnología blockchain es simple, ya que se pueden aprovechar las características ya establecidas de las transacciones para almacenar información, pero su implementación requiere considerar una gran variedad de elementos.</p>
+
+			<p>Para realizar la demostración de esta propuesta se considerarán las limitaciones de espacio y de costos en la selección del sistema a monitorear, y se diseñará el sistema de manera específica para cumplir de la mejor manera el objetivo deseado.</p>
+
+			<br><br><br>
+			<p class="has-text-right monospace"><a href="https://chaucha.party" target="_blank">César Vásquez C.</a></p>
+		</div>
+	</div>
+</section>
+</body>
+</html>
