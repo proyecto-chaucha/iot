@@ -44,13 +44,13 @@
 			
 			<p>El script se presenta como una serie de <b>opcode</b>, o código de operación, junto con la <b>información</b> que acompaña la ejecución de cada instrucción, lo que permite reconstruir paso a paso la generación de la firma digital.</p>
 			
-			<p>Uno de los opcodes existentes en la Chaucha se llama <b>OP_RETURN</b>, que permite incluir <b>80 bytes</b> de información y es utilizado para inhabilitar una transacción, lo que <b>destruye</b> las chauchas incluidas en la misma.</p>
+			<p>Uno de los opcodes existentes en la Chaucha se llama <b>OP_RETURN</b>, que permite incluir <b>80 bytes</b> de información y es utilizado para inhabilitar una transacción, lo que <b>destruye</b> las chauchas incluidas en la misma. Por esto, es necesario enviar <b>transacciones vacías</b> (0 CHA) para utilizar el opcode OP_RETURN.</p>
 			
-			<p>La utilización del OP_RETURN permite <b>almacenar información</b> en la Red Chaucha que quedará disponible en el blockchain de manera <b>pública</b> e <b>inmutable</b> en el tiempo.</p>
+			<p>La utilización del opcode OP_RETURN permite <b>almacenar información</b> en la Red Chaucha que quedará disponible en el blockchain de manera <b>pública</b> e <b>inmutable</b> en el tiempo.</p>
 			
 			<h2>> prueba de concepto</h2>
 
-			<p>El día 13 de Febrero del año 2018 se ejecutó en la Red Chaucha la <b>primera prueba</b> de una transacción con el OP_RETURN modificado, que incluyó la palabra <a href="https://www.youtube.com/watch?v=8FvoJ-HahyQ" target="_blank">waiworinao</a> en hexadecimal como información adicional.</p>
+			<p>El día 13 de Febrero del año 2018 se ejecutó en la Red Chaucha la <b>primera prueba</b> de una transacción con el opcode OP_RETURN modificado, que incluyó la palabra <a href="https://www.youtube.com/watch?v=8FvoJ-HahyQ" target="_blank">waiworinao</a> en hexadecimal como información adicional.</p>
 			
 			<div class="has-text-centered">
 				<img src="waiworinao.png" alt="waiworinao">
@@ -63,7 +63,8 @@
 			<h2>> costos de operación</h2>
 
 			<p>Dentro de los parámetros de funcionamiento de Chaucha se estableció el <b>impuesto mínimo</b> de 0.001 CHA para minar una transacción, junto con la definición de <b>polvo</b> a transacciones con un monto menor a este impuesto.</p>
-			<p>A partir de esto, se puede estimar que el costo asociado a capturar parametros cada 10 minutos durante un año es de <b>105.12 CHA</b>, lo que es un precio razonable considerando los <b>beneficios</b> de este sistema, pero que crea una <b>barrera económica</b> para la investigación independiente.</p>
+
+			<p>A partir de esto, se puede estimar que el costo asociado a capturar parametros cada 10 minutos durante un año es de <b>52.56 CHA</b>, lo que es un precio razonable considerando los <b>beneficios</b> de este sistema, pero que crea una <b>barrera económica</b> para la investigación independiente.</p>
 
 			<h2>> limitaciones</h2>
 			
@@ -71,7 +72,7 @@
 
 			<p>Es posible <b>disminuir el costo</b> de las transacciones al configurar una <b>mining pool</b> que acepte el minar transacciones con cero impuesto, lo que disminuiría el costo de utilización del sistema pero comprometería la <b>descentralización</b> de la red.</p>
 
-			<p>También es posible <b>modificar el OP_RETURN</b> para evitar que deshabilite las transacciones y al mismo tiempo modificar su capacidad de 80 bytes, pero este cambio requiere la <b>actualización total</b> de los nodos en la Red Chaucha.</p>
+			<p>También es posible <b>modificar el opcode OP_RETURN</b> para aumentar su capacidad de 80 bytes, pero este cambio requiere la <b>actualización total</b> de los nodos en la Red Chaucha. Con esto se podría incluir <b>más de una medición por transacción</b>, disminuyendo el costo asociado al impuesto de la mineria.</p>
 
 			<p>Estas propuestas serán estudiadas dentro del desarrollo del sistema.</p>
 			
