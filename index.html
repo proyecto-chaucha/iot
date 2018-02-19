@@ -9,7 +9,7 @@
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css?family=Montserrat|Source+Code+Pro');
 		body { font-family: 'Montserrat', sans-serif; }
-		a, a:visited, a:active { color: #111; text-decoration: none; border-bottom: 1px blue dotted; }
+		a, a:visited, a:active { color: #333; text-decoration: none; border-bottom: 1px blue dotted; }
 		a:hover { color: #F71568; text-decoration: underline; border: none; }
 		.monospace { font-family: 'Source Code Pro', monospace; font-size: 0.8em; }
 	</style>
@@ -19,15 +19,25 @@
 <section class="section">
 	<div class="container">
 		<div class="content">
-		<p class="subtitle is-5">15.02.2018</p>
-		<p class="title">Chaucha IoT</p>
+			<p class="subtitle is-5">15.02.2018</p>
+			<p class="title is-spaced">Chaucha IoT</p>
 		</div>
+		
+		<p class="monospace">
+			<a href="#intro">introducción</a> /
+			<a href="#prop">propuesta</a> /
+			<a href="#conc">conclusión</a> /
+			<a href="#ref">referencias</a>
+			<br>
+			<a href="mensajes.html">* listado de mensajes almacenados en el blockchain *</a>
+		</p>
 
+		<br>
 		<br>
 
 		<div class="content has-text-justified">
 
-			<h1 class="has-text-centered">introducción</h1>
+			<h1 class="has-text-centered" id="intro">introducción</h1>
 			
 			<p>Esta página web presenta la propuesta de desarrollo de un sistema de monitoreo inteligente que utilizará el blockchain de la criptomoneda <a href="https://chaucha.cl/" target="_blank">Chaucha</a> como backend de la plataforma.</p>
 			
@@ -36,7 +46,7 @@
 			<p>La primera prueba práctica del funcionamiento del sistema será presentada la primera semana de Abril del año 2018, posicionando a chaucha como pionera en el desarrollo iot basado en blockchain en latinoamérica.</p>
 
 			<br>
-			<h1 class="has-text-centered">propuesta</h1>
+			<h1 class="has-text-centered" id="prop">propuesta</h1>
 
 			<h2>> funcionamiento teórico</h2>
 			
@@ -54,7 +64,7 @@
 			
 			<div class="has-text-centered">
 				<img src="waiworinao.png" alt="waiworinao">
-				<p class="monospace heading"><a href="http://insight.chaucha.cl/tx/1e3bdd582cd4d1c74b34b9d1959b10aff1d9750b1cb5babf65c7cc81e245ebf1" target="_blank">Ver transacción</a></p>
+				<p class="monospace heading"><a href="http://insight.chaucha.cl/tx/1e3bdd582cd4d1c74b34b9d1959b10aff1d9750b1cb5babf65c7cc81e245ebf1" target="_blank">Ver tx</a></p>
 			</div>
 			
 			<br>
@@ -77,14 +87,14 @@
 			<p>Estas propuestas serán estudiadas dentro del desarrollo del sistema.</p>
 			
 			<br>
-			<h1 class="has-text-centered">conclusión</h1>
+			<h1 class="has-text-centered" id="conc">conclusión</h1>
 
 			<p>La creación de un sistema de monitoreo inteligente en base a la utilización de la tecnología blockchain es simple, ya que se pueden aprovechar las características ya establecidas de las transacciones para almacenar información, pero su implementación requiere considerar una gran variedad de elementos.</p>
 
 			<p>Para realizar la demostración de esta propuesta se considerarán las limitaciones de espacio y de costos en la selección del sistema a monitorear, y se diseñará el sistema de manera específica para cumplir de la mejor manera el objetivo deseado.</p>
 
 			<br>
-			<h1 class="has-text-centered">referencias</h1>
+			<h1 class="has-text-centered" id="ref">referencias</h1>
 			<p class="has-text-centered">
 				<a href="https://en.bitcoin.it/wiki/Script" target="_blank">Script - Bitcoin Wiki</a><br>
 				<a href="https://en.bitcoin.it/wiki/OP_RETURN" target="_blank">OP_RETURN - Bitcoin Wiki</a><br>
