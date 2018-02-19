@@ -22,10 +22,10 @@ function e2t(epoch) {
 	return fecha;
 }
 
-$.get("//insight.chaucha.cl/api/addr/cZJXM2yPqjbinTZ48fV8tjGqjxAePJeWuQ", function(tx) {
+$.get("//explorer.cha.terahash.cl/api/addr/cZJXM2yPqjbinTZ48fV8tjGqjxAePJeWuQ", function(tx) {
 	var info = [];
 	$.each(tx['transactions'], function( index, txin ) {
-		$.get("//insight.chaucha.cl/api/tx/" + txin, function(op_return) {
+		$.get("//explorer.cha.terahash.cl/api/tx/" + txin, function(op_return) {
 			$.each(op_return['vout'], function ( index , op ) {
 				if(op['scriptPubKey']['asm'].indexOf('RETURN') > 0) {
 
@@ -33,7 +33,7 @@ $.get("//insight.chaucha.cl/api/addr/cZJXM2yPqjbinTZ48fV8tjGqjxAePJeWuQ", functi
 					msg = hex2a(op['scriptPubKey']['hex'].substring(4));
 					timestamp = op_return['time'];
 					
-					output = '<a href="//insight.chaucha.cl/tx/' + txin + '" target="_blank">' + e2t(timestamp) +
+					output = '<a href="//explorer.cha.terahash.cl/tx/' + txin + '" target="_blank">' + e2t(timestamp) +
 					'</a>: ' + msg_hex + ' (' + msg + ')<br>';
 
 					$("#msg").html($('#msg').html() + output);
