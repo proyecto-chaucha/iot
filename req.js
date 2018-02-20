@@ -11,6 +11,12 @@ function addZero(i) {
 	return i;
 }
 
+function hexToBytes(hex) {
+	for (var bytes = [], c = 0; c < hex.length; c += 2)
+	bytes.push(parseInt(hex.substr(c, 2), 16));
+	return bytes;
+}
+
 function e2t(epoch) {
 	var date = new Date(parseFloat(epoch + '000'));
 	fecha = addZero((date.getMonth() + 1)) + "." +
@@ -22,21 +28,28 @@ function e2t(epoch) {
 	return fecha;
 }
 
-$.get("//explorer.cha.terahash.cl/api/addr/cZJXM2yPqjbinTZ48fV8tjGqjxAePJeWuQ", function(tx) {
+$.get("https://explorer.cha.terahash.cl/api/addr/cbUUuT7wKZRan5PZCU1Qib63e4TWNKXJ2p", function(tx) {
 	var info = [];
 	$.each(tx['transactions'], function( index, txin ) {
-		$.get("//explorer.cha.terahash.cl/api/tx/" + txin, function(op_return) {
+		$.get("https://explorer.cha.terahash.cl/api/tx/" + txin, function(op_return) {
 			$.each(op_return['vout'], function ( index , op ) {
 				if(op['scriptPubKey']['asm'].indexOf('RETURN') > 0) {
 
 					msg_hex = op['scriptPubKey']['hex'].substring(4);
-					msg = hex2a(op['scriptPubKey']['hex'].substring(4));
-					timestamp = op_return['time'];
-					
-					output = '<a href="//explorer.cha.terahash.cl/tx/' + txin + '" target="_blank">' + e2t(timestamp) +
-					'</a>: ' + msg_hex + ' (' + msg + ')<br>';
 
-					$("#msg").html($('#msg').html() + output);
+					for (i = 0; i < 6; i++) {
+						time_hex = msg_hex.substring(0 + (i*24), 8 + (i*24))
+						temp_hex = msg_hex.substring(8 + (i*24), 16 + (i*24))
+						hum_hex = msg_hex.substring(16 + (i*24), 24 + (i*24))
+
+						var temp = new Float32Array((new Uint8Array(hexToBytes(temp_hex))).buffer)[0];
+						var hum = new Float32Array((new Uint8Array(hexToBytes(hum_hex))).buffer)[0];
+						var time = new Uint32Array((new Uint8Array(hexToBytes(time_hex))).buffer)[0];
+
+						log = 'Temperatura ' + Number((temp).toFixed(2)) + '°C' + ', Humedad ' + Number((hum).toFixed(2)) + '%' 
+						$("#msg").html($('#msg').html() + e2t(time) + ': ' + log + '<br>');
+					}
+
 				}
 			});
 		});
