@@ -1,3 +1,51 @@
+var buff_t = [];
+var buff_h = []; 
+
+
+var grafo_t = Morris.Area({
+	element: 'grafo_t',
+	pointSize: 0, 
+	data: buff_t,
+	xkey: 'y',
+	ykeys: ['t'],
+	hideHover: 'auto',
+	lineColors: ['#FF00AA'],
+	linewidth: '3px',
+	smooth: true,
+	labels: ['Temperatura'],
+	dateFormat: function(date) {
+		d = new Date(date);
+		return addZero(d.getDate())+'/'+addZero(d.getMonth()+1)+'/'+d.getFullYear()+' '+
+		+addZero(d.getHours())+':'+addZero(d.getMinutes())+':'+addZero(d.getSeconds()); 
+	},
+	yLabelFormat: function (y) { return y.toString() + '°C'; }
+});
+
+var grafo_h = Morris.Area({
+	element: 'grafo_h',
+	pointSize: 0, 
+	data: buff_h,
+	xkey: 'y',
+	ykeys: ['h'],
+	hideHover: 'auto',
+	lineColors: ['#00AAFF'],
+	linewidth: '3px',
+	smooth: true,
+	labels: ['Humedad'],
+	dateFormat: function(date) {
+		d = new Date(date);
+		return addZero(d.getDate())+'/'+addZero(d.getMonth()+1)+'/'+d.getFullYear()+' '+
+		+addZero(d.getHours())+':'+addZero(d.getMinutes())+':'+addZero(d.getSeconds()); 
+	},
+	yLabelFormat: function (y) { return y.toString() + '%'; }
+});
+
+var timer = setInterval(refresh, 1000);
+function refresh () {
+	grafo_t.setData(buff_t);
+	grafo_h.setData(buff_h);
+}
+
 function hex2a(hex) {
 	var str = '';
 	for (var i = 0; i < hex.length; i += 2) str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
@@ -46,8 +94,8 @@ $.get("https://explorer.cha.terahash.cl/api/addr/cbUUuT7wKZRan5PZCU1Qib63e4TWNKX
 						var hum = new Float32Array((new Uint8Array(hexToBytes(hum_hex))).buffer)[0];
 						var time = new Uint32Array((new Uint8Array(hexToBytes(time_hex))).buffer)[0];
 
-						log = 'Temperatura ' + Number((temp).toFixed(2)) + '°C' + ', Humedad ' + Number((hum).toFixed(2)) + '%' 
-						$("#msg").html($('#msg').html() + e2t(time) + ': ' + log + '<br>');
+						buff_t.push({t: Number((temp).toFixed(2)), y: time});
+						buff_h.push({h: Number((hum).toFixed(2)), y: time});
 					}
 
 				}

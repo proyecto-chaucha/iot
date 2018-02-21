@@ -23,15 +23,24 @@
 		</div>
 
 		<br>
-		
-		<div class="content has-text-justified">
-			<h1 class="has-text-centered" id="intro">mensajes de prueba</h1>
-			<p class="monospace" id="msg"></p>
+
+		<div class="content columns">
+			<div class="column is-half">
+				<h1 class="has-text-centered">Temperatura</h1>
+				<div id='grafo_t' style="height: 300px;"></div>
+			</div>
+			<div class="column is-half">
+				<h1 class="has-text-centered">Humedad</h1>
+				<div id='grafo_h' style="height: 300px;"></div>
+			</div>
 		</div>
+
 	</div>
 </section>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 <script src="req.js" type="text/javascript"></script>
 </body>
 </html>
