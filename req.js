@@ -1,7 +1,6 @@
 var buff_t = [];
 var buff_h = []; 
 
-
 var grafo_t = Morris.Area({
 	element: 'grafo_t',
 	pointSize: 0, 
@@ -50,11 +49,6 @@ var grafo_h = Morris.Area({
 	yLabelFormat: function (y) { return y.toString() + '%'; }
 });
 
-var timer = setInterval(refresh, 1000);
-function refresh () {
-	grafo_t.setData(buff_t);
-	grafo_h.setData(buff_h);
-}
 
 function hex2a(hex) {
 	var str = '';
@@ -97,6 +91,9 @@ $.get("https://explorer.cha.terahash.cl/api/addr/cbUUuT7wKZRan5PZCU1Qib63e4TWNKX
 						buff_h.push({h: Number((hum).toFixed(2)), y: time});
 					}
 
+					$('#tx').html($('#tx').html() + '<br><a href="http://insight.chaucha.cl/tx/' + txin + '" target="_Blank">' + txin + '</a>');
+					grafo_t.setData(buff_t);
+					grafo_h.setData(buff_h);
 				}
 			});
 		});

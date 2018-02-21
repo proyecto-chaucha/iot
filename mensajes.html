@@ -7,11 +7,11 @@
 	<title>Chaucha IoT</title>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
 	<style type="text/css">
-		@import url('https://fonts.googleapis.com/css?family=Montserrat|Source+Code+Pro');
-		body { font-family: 'Montserrat', sans-serif; }
+		@import url("https://fonts.googleapis.com/css?family=Montserrat|Source+Code+Pro");
+		body { font-family: "Montserrat", sans-serif; }
 		a, a:visited, a:active { color: #333; text-decoration: none; border-bottom: 1px blue dotted; }
 		a:hover { color: #F71568; text-decoration: underline; border: none; }
-		.monospace { font-family: 'Source Code Pro', monospace; font-size: 0.8em; }
+		.monospace { font-family: "Source Code Pro", monospace; font-size: 0.8em; }
 	</style>
 </head>
 <body>
@@ -24,15 +24,19 @@
 
 		<br>
 
-		<div class="content columns">
-			<div class="column is-half">
-				<h1 class="has-text-centered">Temperatura</h1>
-				<div id='grafo_t' style="height: 300px;"></div>
+		<div class="content">
+			<div class="columns">
+				<div class="column is-half">
+					<h3 class="has-text-centered">Temperatura</h3>
+					<div id="grafo_t" style="height: 300px;"></div>
+				</div>
+				<div class="column is-half">
+					<h3 class="has-text-centered">Humedad</h3>
+					<div id="grafo_h" style="height: 300px;"></div>
+				</div>
 			</div>
-			<div class="column is-half">
-				<h1 class="has-text-centered">Humedad</h1>
-				<div id='grafo_h' style="height: 300px;"></div>
-			</div>
+			<h3 class="has-text-centered">Transacciones</h3>
+			<p class="monospace has-text-centered" id="tx"></p>
 		</div>
 
 	</div>
