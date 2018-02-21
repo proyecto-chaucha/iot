@@ -13,10 +13,15 @@ var grafo_t = Morris.Area({
 	linewidth: '3px',
 	smooth: true,
 	labels: ['Temperatura'],
-	dateFormat: function(date) {
-		d = new Date(date);
-		return addZero(d.getDate())+'/'+addZero(d.getMonth()+1)+'/'+d.getFullYear()+' '+
-		+addZero(d.getHours())+':'+addZero(d.getMinutes())+':'+addZero(d.getSeconds()); 
+	dateFormat: function(epoch) {
+				var date = new Date(parseFloat(epoch + '000'));
+				fecha = addZero((date.getMonth() + 1)) + "." +
+				addZero(date.getDate()) + "." +
+				date.getFullYear() + " " +
+				addZero(date.getHours()) + ":" +
+				addZero(date.getMinutes()) + ":" +
+				addZero(date.getSeconds());
+				return fecha; 
 	},
 	yLabelFormat: function (y) { return y.toString() + '°C'; }
 });
@@ -32,10 +37,15 @@ var grafo_h = Morris.Area({
 	linewidth: '3px',
 	smooth: true,
 	labels: ['Humedad'],
-	dateFormat: function(date) {
-		d = new Date(date);
-		return addZero(d.getDate())+'/'+addZero(d.getMonth()+1)+'/'+d.getFullYear()+' '+
-		+addZero(d.getHours())+':'+addZero(d.getMinutes())+':'+addZero(d.getSeconds()); 
+	dateFormat: function(epoch) {
+				var date = new Date(parseFloat(epoch + '000'));
+				fecha = addZero((date.getMonth() + 1)) + "." +
+				addZero(date.getDate()) + "." +
+				date.getFullYear() + " " +
+				addZero(date.getHours()) + ":" +
+				addZero(date.getMinutes()) + ":" +
+				addZero(date.getSeconds());
+				return fecha; 
 	},
 	yLabelFormat: function (y) { return y.toString() + '%'; }
 });
@@ -63,17 +73,6 @@ function hexToBytes(hex) {
 	for (var bytes = [], c = 0; c < hex.length; c += 2)
 	bytes.push(parseInt(hex.substr(c, 2), 16));
 	return bytes;
-}
-
-function e2t(epoch) {
-	var date = new Date(parseFloat(epoch + '000'));
-	fecha = addZero((date.getMonth() + 1)) + "." +
-	addZero(date.getDate()) + "." +
-	date.getFullYear() + " " +
-	addZero(date.getHours()) + ":" +
-	addZero(date.getMinutes()) + ":" +
-	addZero(date.getSeconds());
-	return fecha;
 }
 
 $.get("https://explorer.cha.terahash.cl/api/addr/cbUUuT7wKZRan5PZCU1Qib63e4TWNKXJ2p", function(tx) {
