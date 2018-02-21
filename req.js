@@ -37,7 +37,7 @@ $.get("https://explorer.cha.terahash.cl/api/addr/cbUUuT7wKZRan5PZCU1Qib63e4TWNKX
 
 					msg_hex = op['scriptPubKey']['hex'].substring(4);
 
-					for (i = 0; i < 6; i++) {
+					for (i = 5; i >= 0; i--) {
 						time_hex = msg_hex.substring(0 + (i*24), 8 + (i*24))
 						temp_hex = msg_hex.substring(8 + (i*24), 16 + (i*24))
 						hum_hex = msg_hex.substring(16 + (i*24), 24 + (i*24))
