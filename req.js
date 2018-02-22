@@ -8,10 +8,13 @@ var grafo_t = Morris.Area({
 	xkey: 'y',
 	ykeys: ['t'],
 	hideHover: 'auto',
-	lineColors: ['#FF00AA'],
+	lineColors: ['#B11623'],
 	linewidth: '3px',
 	smooth: true,
 	labels: ['Temperatura'],
+	axes: false,
+	grid: false,
+	hideHover: false,
 	dateFormat: function(epoch) {
 				var date = new Date(parseFloat(epoch + '000'));
 				fecha = addZero(date.getDate()) + "." +
@@ -22,7 +25,7 @@ var grafo_t = Morris.Area({
 				addZero(date.getSeconds());
 				return fecha; 
 	},
-	yLabelFormat: function (y) { return y.toString() + '°C'; }
+	postUnits: '°C'
 });
 
 var grafo_h = Morris.Area({
@@ -32,10 +35,13 @@ var grafo_h = Morris.Area({
 	xkey: 'y',
 	ykeys: ['h'],
 	hideHover: 'auto',
-	lineColors: ['#00AAFF'],
+	lineColors: ['#3B8183'],
 	linewidth: '3px',
 	smooth: true,
 	labels: ['Humedad'],
+	axes: false,
+	grid: false,
+	hideHover: false,
 	dateFormat: function(epoch) {
 				var date = new Date(parseFloat(epoch + '000'));
 				fecha = addZero(date.getDate()) + "." +
@@ -46,7 +52,7 @@ var grafo_h = Morris.Area({
 				addZero(date.getSeconds());
 				return fecha; 
 	},
-	yLabelFormat: function (y) { return y.toString() + '%'; }
+	postUnits: '%	'
 });
 
 
