@@ -69,7 +69,7 @@ function hexToBytes(hex) {
 	return bytes;
 }
 
-$.get("https://explorer.cha.terahash.cl/api/addr/cbUUuT7wKZRan5PZCU1Qib63e4TWNKXJ2p?from=0&to=6", function(tx) {
+$.get("https://explorer.cha.terahash.cl/api/addr/cijgisFYuwYiqwhjZnbowrQYXsUq9G3GmA?from=0&to=6", function(tx) {
 	var info = [];
 	$.each(tx['transactions'], function( index, txin ) {
 		$.get("https://explorer.cha.terahash.cl/api/tx/" + txin, function(op_return) {
